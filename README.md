@@ -64,6 +64,6 @@
 
 ## ภาพหน้าจอผล Lighthouse (Accessibility) ของหน้าหลัก
 
-![Lighthouse Accessibility - index.html](images/lighthouse-index.png)
+![Lighthouse Accessibility - index.html](image/lighthouse-index.png)
 
 **คะแนน Accessibility:** 100 / 100
