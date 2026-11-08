@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="รายละเอียดสถานที่ภายในมหาวิทยาลัย">
+  <title>รายละเอียดสถานที่ | Campus Finder</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="js/theme.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/place.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="เมนูหลัก">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">C</span>
+        <span>Campus<span class="brand-light">Finder</span><small>SMART CAMPUS DIRECTORY</small></span>
+      </a>
+      <button class="menu-toggle" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="index.html">หน้าแรก</a>
+        <a class="active" href="places.html">สถานที่ทั้งหมด</a>
+        <a href="favorites.html">รายการโปรด</a>
+        <a class="nav-cta" href="suggest.html">เสนอข้อมูล <span>＋</span></a>
+        <div class="theme-switch">
+          <span aria-hidden="true">◐</span>
+          <label class="sr-only" for="theme-select">เลือกธีมหน้าจอ</label>
+          <select class="theme-select" id="theme-select">
+            <option value="system">ตามระบบ</option>
+            <option value="light">สว่าง</option>
+            <option value="dark">มืด</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner compact-banner">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">หน้าแรก</a>
+          <span>/</span>
+          <a href="places.html">สถานที่ทั้งหมด</a>
+          <span>/</span>
+          <span>รายละเอียดสถานที่</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="place-detail">
+      <div class="loading-state">กำลังโหลดรายละเอียด...</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="index.html">
+        <span class="brand-mark">C</span>
+        <span>Campus<span class="brand-light">Finder</span><small>SMART CAMPUS DIRECTORY</small></span>
+      </a>
+      <p>ค้นหาอาคาร ห้องเรียน และจุดบริการในมหาวิทยาลัย</p>
+      <small>© 2026 Campus Finder · Student Mini Project</small>
+    </div>
+  </footer>
+</body>
+</html>

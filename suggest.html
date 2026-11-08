@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="เสนอเพิ่มสถานที่หรือแจ้งแก้ไขข้อมูล">
+  <title>เสนอข้อมูล | Campus Finder</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="js/theme.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/suggest.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="เมนูหลัก">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">C</span>
+        <span>Campus<span class="brand-light">Finder</span><small>SMART CAMPUS DIRECTORY</small></span>
+      </a>
+      <button class="menu-toggle" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="places.html">สถานที่ทั้งหมด</a>
+        <a href="favorites.html">รายการโปรด</a>
+        <a class="nav-cta active" href="suggest.html">เสนอข้อมูล <span>＋</span></a>
+        <div class="theme-switch">
+          <span aria-hidden="true">◐</span>
+          <label class="sr-only" for="theme-select">เลือกธีมหน้าจอ</label>
+          <select class="theme-select" id="theme-select">
+            <option value="system">ตามระบบ</option>
+            <option value="light">สว่าง</option>
+            <option value="dark">มืด</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner">
+      <div class="container">
+        <span class="eyebrow blue">HELP US IMPROVE</span>
+        <h1>ร่วมอัปเดตข้อมูล</h1>
+        <p>พบข้อมูลไม่ถูกต้อง หรือต้องการเสนอเพิ่มสถานที่ใหม่ แจ้งเราได้ที่นี่</p>
+        <div class="breadcrumb">
+          <a href="index.html">หน้าแรก</a>
+          <span>/</span>
+          <span>เสนอข้อมูล</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container form-layout">
+      <aside class="form-aside">
+        <div class="aside-icon">✦</div>
+        <span class="eyebrow blue">CAMPUS COMMUNITY</span>
+        <h2>ข้อมูลที่ถูกต้อง<br>เริ่มต้นจากคุณ</h2>
+        <p>ข้อเสนอแนะของคุณช่วยให้ทุกคนค้นหาสถานที่ในมหาวิทยาลัยได้สะดวกและแม่นยำยิ่งขึ้น</p>
+        <div class="aside-note">
+          <strong>โปรดทราบ</strong>
+          <span>เมื่อกดปุ่มด้านล่าง ระบบจะเปิด Google Form ที่กรอกข้อมูลไว้ให้แล้ว กรุณากด "ส่ง" ในหน้า Google เพื่อให้ข้อมูลถึงผู้ดูแล ไม่มีการเก็บข้อมูลส่วนตัวของผู้ส่ง</span>
+        </div>
+      </aside>
+
+      <form class="suggest-form" id="suggest-form" novalidate>
+        <div class="form-title">
+          <h2>แบบฟอร์มเสนอข้อมูล</h2>
+          <p>กรุณากรอกข้อมูลให้ครบถ้วนในช่องที่มีเครื่องหมาย *</p>
+        </div>
+
+        <fieldset>
+          <legend>ประเภทคำขอ</legend>
+          <div class="radio-cards">
+            <label class="radio-card">
+              <input type="radio" name="requestType" value="เพิ่มสถานที่ใหม่" checked>
+              <span>
+                <b>＋</b>
+                <strong>เพิ่มสถานที่ใหม่</strong>
+                <small>เสนอข้อมูลสถานที่ที่ยังไม่มีในระบบ</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="requestType" value="แจ้งแก้ไขข้อมูล">
+              <span>
+                <b>✎</b>
+                <strong>แจ้งแก้ไขข้อมูล</strong>
+                <small>แจ้งข้อมูลที่แสดงอยู่ไม่ถูกต้อง</small>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-grid">
+          <div class="form-field hidden" id="existing-place-field">
+            <label for="existing-place">เลือกสถานที่ที่ต้องการแก้ไข <em>*</em></label>
+            <select id="existing-place" name="placeId">
+              <option value="">เลือกสถานที่</option>
+            </select>
+            <small class="field-error" id="place-error"></small>
+          </div>
+
+          <div class="form-field" id="new-place-field">
+            <label for="place-name">ชื่อสถานที่ <em>*</em></label>
+            <input id="place-name" name="placeName" required minlength="2" maxlength="100" placeholder="เช่น อาคารเรียน...">
+            <small class="field-error" id="name-error"></small>
+          </div>
+
+          <div class="form-field">
+            <label for="place-type">ประเภทสถานที่ <em>*</em></label>
+            <select id="place-type" name="placeType" required>
+              <option value="">เลือกประเภท</option>
+              <option>อาคารเรียน</option>
+              <option>สำนักงาน</option>
+              <option>จุดบริการ</option>
+              <option>ร้านอาหาร</option>
+            </select>
+            <small class="field-error" id="type-error"></small>
+          </div>
+
+          <div class="form-field">
+            <label for="place-zone">โซน (ถ้าทราบ)</label>
+            <select id="place-zone" name="placeZone">
+              <option value="">ไม่ระบุ</option>
+            </select>
+          </div>
+
+          <div class="form-field full-field">
+            <label for="details">รายละเอียดเพิ่มเติม <em>*</em></label>
+            <textarea id="details" name="details" required minlength="10" maxlength="1000" rows="5" placeholder="อธิบายตำแหน่งที่ตั้ง รายละเอียดที่ต้องการแก้ไข หรือข้อมูลเพิ่มเติม..."></textarea>
+            <small class="field-error" id="details-error"></small>
+          </div>
+        </div>
+
+        <label class="consent-check">
+          <input type="checkbox" id="confirm" required>
+          <span>ฉันตรวจสอบข้อมูลที่กรอกแล้ว และยืนยันว่าข้อมูลนี้เป็นประโยชน์ต่อผู้ใช้งาน</span>
+        </label>
+        <small class="field-error" id="confirm-error"></small>
+
+        <button class="button button-primary submit-button" type="submit">ไปยัง Google Form เพื่อส่ง <span>↗</span></button>
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="index.html">
+        <span class="brand-mark">C</span>
+        <span>Campus<span class="brand-light">Finder</span><small>SMART CAMPUS DIRECTORY</small></span>
+      </a>
+      <p>ค้นหาอาคาร ห้องเรียน และจุดบริการในมหาวิทยาลัย</p>
+      <small>© 2026 Campus Finder · Student Mini Project</small>
+    </div>
+  </footer>
+</body>
+</html>
