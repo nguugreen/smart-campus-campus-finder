@@ -90,6 +90,7 @@ textarea:focus-visible {
 .container {
   width: min(1160px,calc(100% - 44px));
   margin-inline: auto;
+  font-size: 32px;
 }
 
 .sr-only {
