@@ -406,7 +406,7 @@ textarea:focus-visible {
 
 .section-heading h2,
 .map-promo h2 {
-  font: 600 27px "Kanit",sans-serif;
+  font: 600 32px "Kanit",sans-serif;
   color: var(--blue-950);
   margin: 6px 0 3px;
   font-size: 32px;
