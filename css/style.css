@@ -126,7 +126,7 @@ textarea:focus-visible {
   align-items: center;
   gap: 11px;
   font-family: "Kanit",sans-serif;
-  font-size: 21px;
+  font-size: 32px;
   font-weight: 600;
   line-height: 1.05;
   color: var(--blue-950);
@@ -408,6 +408,7 @@ textarea:focus-visible {
   font: 600 27px "Kanit",sans-serif;
   color: var(--blue-950);
   margin: 6px 0 3px;
+  font-size: 32px
 }
 
 .section-heading p,
